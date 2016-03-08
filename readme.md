@@ -15,7 +15,9 @@ nodemon server.js
 # How to use
 
 Create note it will take the user to the home page, where user can see notes according to their types.
-
+By clicking on the close icon note will be remove.
+User can updated created note by clicking on edit icon.
+For better understanding please see the screenshots below
 # Result
 
 ![alt text](screenshots/note.png)
