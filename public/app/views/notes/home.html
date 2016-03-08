@@ -1,0 +1,156 @@
+<section id = "home">
+   <div class="container">
+      <div class="row">
+         <h3 class = "text-center notes-desption"> Notes Description </h3>
+         <div class = "note-accordion">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+               <div class="panel panel-custom">
+                  <div class="panel-heading" role="tab" id="headingOne">
+                     <h4 class="panel-title">
+                        <a  data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        Office
+                        </a>
+                     </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                     <div class="panel-body animated zoomOut">
+                        <div class = "container">
+                           <div class = "row space-left">
+                              <div ng-repeat = "note in office" class = "notes-adjust">
+                                 <div class = "note office">
+                                    <p class = "note-title"><strong> Note:</strong>  {{note.note}}</p>
+                                    <h5 class = "note-type"><strong> Type:</strong>  {{note.type}}</h5>
+                                    <h5 class = "note-priority"><strong> Priority:</strong>  {{note.priority}}</h5>
+                                    <h5 class = "note-descp"><strong> Description:</strong>  {{note.description}}</h5>
+                                    <a  ng-click="removeNote(note._id)" class="close" data-dismiss="alert">&times;</a>
+                                    <a  ng-click="editNote(note._id)" data-toggle="modal" data-target="#myModal" class = "edit-symbol"><i class = "fa fa-edit"></i></a>
+                                 </div>
+                              </div>
+                              <!--repeat ended -->
+                           </div>
+                           <!--row-->
+                        </div>
+                        <!--container-->
+                     </div>
+                  </div>
+               </div>
+               <div class="panel panel-custom">
+                  <div class="panel-heading" role="tab" id="headingTwo">
+                     <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        Home
+                        </a>
+                     </h4>
+                  </div>
+                  <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                     <div class="panel-body animated zoomOut">
+                        <div class = "container">
+                           <div class = "row space-left" >
+                              <div ng-repeat = "note in home"  class = "notes-adjust">
+                                 <div class = "note home">
+                                    <p class = "note-title"><strong> Note:</strong>  {{note.note}}</p>
+                                    <h5 class = "note-type"><strong> Type:</strong>  {{note.type}}</h5>
+                                    <h5 class = "note-priority"><strong> Priority: </strong> {{note.priority}}</h5>
+                                    <h5 class = "note-descp"><strong> Description:</strong>  {{note.description}}</h5>
+                                    <a  ng-click="removeNote(note._id)" class="close" data-dismiss="alert">&times;</a>
+                                    <a  ng-click="editNote(note._id)" data-toggle="modal" data-target="#myModal" class = "edit-symbol"><i class = "fa fa-edit"></i></a>
+                                 </div>
+                              </div>
+                              <!--repeat ended -->
+                           </div>
+                           <!--row-->
+                        </div>
+                        <!--container-->
+                     </div>
+                  </div>
+               </div>
+               <div class="panel panel-custom">
+                  <div class="panel-heading" role="tab" id="headingThree">
+                     <h4 class="panel-title">
+                        <i class="glyphicon glyphicon-plus"></i>                    
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">                            
+                        Other
+                        </a>                        
+                     </h4>
+                  </div>
+                  <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                     <div class="panel-body animated zoomOut">
+                        <div class = "container">
+                           <div class = "row space-left">
+                              <div ng-repeat = "note in other"  class = "notes-adjust">
+                                 <div class = "note other">
+                                    <p class = "note-title"><strong>Note:</strong> {{note.note}}</p>
+                                    <h5 class = "note-type"><strong> Type: </strong> {{note.type}}</h5>
+                                    <h5 class = "note-priority"><strong> Priority:</strong>  {{note.priority}}</h5>
+                                    <h5 class = "note-descp"><strong> Description:</strong>  {{note.description}}</h5>
+                                    <a  ng-click="removeNote(note._id)" class="close" data-dismiss="alert">&times;</a>
+                                    <a  ng-click="editNote(note._id)" data-toggle="modal" data-target="#myModal" class = "edit-symbol"><i class = "fa fa-edit"></i></a>
+                                 </div>
+                              </div>
+                              <!--repeat ended -->
+                           </div>
+                           <!--row-->
+                        </div>
+                        <!--container-->
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Modal -->
+   <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+         <!-- Modal content-->
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+               <h4 class="modal-title text-center">Change Note</h4>
+            </div>
+            <div class="modal-body">
+               <div class = "container">
+                  <div class = "row">
+                     <div class = "desktop-form-width">
+                        <form role="form">
+                           <div class="form-group">
+                              <label class="control-label" for="note">Note</label>
+                              <input type="text"  ng-model = "note.note" class="form-control" id="note" placeholder="Enter note">
+                           </div>
+                           <div class="form-group">
+                              <label for="type" class = " control-label">Type</label>
+                              <select ng-model = "note.type" class="form-control" id="type">
+                                 <option>Office</option>
+                                 <option>Home</option>
+                                 <option>Other</option>
+                              </select>
+                           </div>
+                           <div class="form-group">
+                              <label for="priority" class = "control-label">Priority</label>
+                              <select  ng-model = "note.priority" class="form-control" id="priority">
+                                 <option>Normal</option>
+                                 <option>High</option>
+                                 <option>Low</option>
+                              </select>
+                           </div>
+                           <div class="form-group">
+                              <label for="description" class = "control-label">Description</label>
+                              <textarea class="form-control" ng-model = "note.description" id="description" rows="3" placeholder = "Enter description"></textarea>
+                           </div>
+                           <div class="form-group"> 
+                              <button type="submit" ng-click="saveEditNote(note._id,note)" class="btn btn-default" data-dismiss="modal">Submit</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>

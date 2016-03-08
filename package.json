@@ -1,0 +1,11 @@
+{
+  "name": "Notes-Taking-App",
+  "versions": "1.0.0",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "mongojs": "*",
+    "nodemon": "^1.9.1"
+  },
+  "author": "Iqrar Haider"
+}
