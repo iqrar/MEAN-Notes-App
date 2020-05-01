@@ -5,7 +5,13 @@
     "body-parser": "*",
     "express": "*",
     "mongojs": "*",
-    "nodemon": "^1.9.1"
+    "nodemon": "^1.9.1",
+    "snyk": "^1.316.1"
   },
-  "author": "Iqrar Haider"
+  "author": "Iqrar Haider",
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
